@@ -1,4 +1,10 @@
-### Hi there 👋
+### Hi there 👋 I'm Lee Si Yuan
+
+from NUS Computer Science
+
+I'm a passionate individual with a curiosity for knowledge and a love for learning. I have a diverse range of interests, including technology, arts, literature, and science. As an inquisitive person, I enjoy exploring new ideas, solving problems, and engaging in meaningful conversations.
+
+Written by ChadGPT ;)
 
 <!--
 **lsyurea/lsyurea** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
@@ -6,7 +12,9 @@
 Here are some ideas to get you started:
 
 - 🔭 I’m currently working on ...
+Creating a chat bot using Machine Learning
 - 🌱 I’m currently learning ...
+AI, 
 - 👯 I’m looking to collaborate on ...
 - 🤔 I’m looking for help with ...
 - 💬 Ask me about ...
