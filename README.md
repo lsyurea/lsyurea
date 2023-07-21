@@ -8,7 +8,7 @@ What I have learnt:
 React, Angular, Vite, Supabase, Hibernate, Java, Javascript, Typescript, CSS, HTML, Python, PostgreSQL, Springboot
 
 Libraries I have explored:
-Pandas, Bootstrap
+Pandas, Bootstrap, BeautifulSoup
 
 Libraries/ Framework I'm currently learning/working on:
 Three js
