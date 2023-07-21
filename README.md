@@ -2,10 +2,16 @@
 
 from NUS Computer Science
 
-I'm a passionate individual with a curiosity for knowledge and a love for learning. I have a diverse range of interests, including technology, arts, literature, and science. As an inquisitive person, I enjoy exploring new ideas, solving problems, and engaging in meaningful conversations.
+I'm a passionate individual with a curiosity for knowledge and a love for learning. As an inquisitive person, I enjoy exploring new ideas, solving problems, and engaging in meaningful conversations.
 
-Written by ChadGPT ;)
+What I have learnt:
+React, Angular, Vite, Supabase, Hibernate, Java, Javascript, Typescript, CSS, HTML, Python, PostgreSQL
 
+Libraries I have explored:
+Pandas, Bootstrap
+
+Libraries/ Framework I'm currently learning/working on:
+Three js
 <!--
 **lsyurea/lsyurea** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
