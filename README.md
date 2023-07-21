@@ -5,7 +5,7 @@ from NUS Computer Science
 I'm a passionate individual with a curiosity for knowledge and a love for learning. As an inquisitive person, I enjoy exploring new ideas, solving problems, and engaging in meaningful conversations.
 
 What I have learnt:
-React, Angular, Vite, Supabase, Hibernate, Java, Javascript, Typescript, CSS, HTML, Python, PostgreSQL
+React, Angular, Vite, Supabase, Hibernate, Java, Javascript, Typescript, CSS, HTML, Python, PostgreSQL, Springboot
 
 Libraries I have explored:
 Pandas, Bootstrap
