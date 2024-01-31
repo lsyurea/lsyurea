@@ -11,7 +11,9 @@ I'm a passionate individual with a curiosity for knowledge and a love for learni
 *   ✉️  You can contact me at [lee.si.yuan.20@gmail.com](mailto:lee.si.yuan.20@gmail.com)
 *   🧠  I'm learning Threejs
 *   🤝  I'm open to collaborating on AI related projects
-*   ⚡  My favourite pasttime is scrolling through Shorts and playing chess<a href="https://www.github.com/lsyurea" target="_blank" rel="noreferrer"><img
+*   ⚡  My favourite pasttime is scrolling through Shorts and playing chess
+
+<a href="https://www.github.com/lsyurea" target="_blank" rel="noreferrer"><img
                   src="https://img.shields.io/github/followers/lsyurea?logo=github&style=for-the-badge&color=0891b2&labelColor=1c1917" /></a>
 
 
