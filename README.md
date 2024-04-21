@@ -44,10 +44,18 @@ I'm a passionate individual with a curiosity for knowledge and a love for learni
   ### Badges
   <b>My GitHub Stats</b>
   
+
+
+  <a href="https://leetcode.com/lsy_urea">
+    <img src="https://leetcode-stats-six.vercel.app/?username=lsy_urea&theme=dark" />
+  </a>
+  
   <a href="http://www.github.com/lsyurea">
     <img src="https://github-readme-streak-stats.herokuapp.com/?user=lsyurea&stroke=ffffff&background=1c1917&ring=0891b2&fire=0891b2&currStreakNum=ffffff&currStreakLabel=0891b2&sideNums=ffffff&sideLabels=ffffff&dates=ffffff&hide_border=true" />
   </a>
-  
-  <a href="https://github.com/lsyurea" align="left">
+
+  <a href="https://github.com/lsyurea">
     <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=lsyurea&langs_count=10&title_color=0891b2&text_color=ffffff&icon_color=0891b2&bg_color=1c1917&hide_border=true&locale=en&custom_title=Top%20%Languages" alt="Top Languages" />
   </a>
+
+  
