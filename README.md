@@ -46,10 +46,20 @@ I'm a passionate individual with a curiosity for knowledge and a love for learni
   
 
 
-  <a href="https://leetcode.com/lsy_urea">
-    <img src="https://leetcode-stats-six.vercel.app/?username=lsy_urea&theme=dark" />
-  </a>
+
   
-  <a href="http://www.github.com/lsyurea">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=lsyurea&stroke=ffffff&background=1c1917&ring=0891b2&fire=0891b2&currStreakNum=ffffff&currStreakLabel=0891b2&sideNums=ffffff&sideLabels=ffffff&dates=ffffff&hide_border=true" />
-  </a>  
+
+  <p float="left">
+    <a href="http://www.github.com/lsyurea">
+      <img src="https://github-readme-stats.vercel.app/api/top-langs?username=lsyurea&show_icons=true&locale=en&theme=dark&layout=donut&hide=Jupyter%20Notebook,HTML" />
+    </a>
+    <a href="http://www.github.com/lsyurea">
+      <img src="https://github-readme-stats.vercel.app/api?username=lsyurea&show_icons=true&locale=en&theme=dark" />
+    </a>
+    <a href="https://leetcode.com/lsy_urea">
+      <img src="https://leetcode-stats-six.vercel.app/?username=lsy_urea&theme=dark" />
+    </a>
+    <a href="http://www.github.com/lsyurea">
+      <img src="https://github-readme-streak-stats.herokuapp.com/?user=lsyurea&stroke=ffffff&background=1c1917&ring=0891b2&fire=0891b2&currStreakNum=ffffff&currStreakLabel=0891b2&sideNums=ffffff&sideLabels=ffffff&dates=ffffff&hide_border=true" />
+    </a>  
+  </p>
