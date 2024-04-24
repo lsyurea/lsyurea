@@ -41,13 +41,8 @@ I'm a passionate individual with a curiosity for knowledge and a love for learni
       </a>
   </p>
       
-  ### Badges
-  <b>My GitHub Stats</b>
-  
-
-
-
-  
+  ### Status
+  <b>My GitHub Stats</b>  
 
   <p float="left">
     <a href="https://leetcode.com/lsy_urea">
