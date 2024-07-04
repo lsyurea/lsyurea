@@ -44,7 +44,7 @@ I'm a passionate individual with a curiosity for knowledge and a love for learni
   ### Status
   <b>My GitHub Stats</b>  
 
-  <a href="[http://www.github.com/lsyurea](https://leetcode.com/u/lsy_urea)">
+  <a href="https://leetcode.com/u/lsy_urea">
     <img src="https://leetcard.jacoblin.cool/lsy_urea?theme=dark&font=Ropa%20Sans" />
   </a>  
   
