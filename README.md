@@ -7,7 +7,7 @@ Aspiring SWE
 I'm a passionate individual with a curiosity for knowledge and a love for learning. As an inquisitive person, I enjoy exploring new ideas, solving problems, and engaging in meaningful conversations.
 
 *   🌍  I'm based in Singapore
-*   🖥️  See my portfolio at [this website](http://lsyurea.github.io/portfolio-v2)
+*   🖥️  See my portfolio at [this website](https://leesiyuan.vercel.app)
 *   ✉️  You can contact me at [lee.si.yuan.20@gmail.com](mailto:lee.si.yuan.20@gmail.com)
 *   🧠  I'm learning Threejs
 *   🤝  I'm open to collaborating on AI related projects
