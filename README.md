@@ -1,7 +1,7 @@
 Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif)My name is Lee Si Yuan
 ===================================================================================================================================
 
-Aspiring SWE
+SWE
 ------------
 
 I'm a passionate individual with a curiosity for knowledge and a love for learning. As an inquisitive person, I enjoy exploring new ideas, solving problems, and engaging in meaningful conversations.
