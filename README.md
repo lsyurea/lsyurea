@@ -54,8 +54,7 @@
 ### 📈 GitHub Streak Metrics
 
 <img 
-  src="https://github-readme-streak-stats.herokuapp.com/?user=YOUR_USERNAME&theme=radical&hide_border=true" 
-  alt="GitHub Streak"
+  src="https://github-readme-streak-stats.herokuapp.com/?user=lsyurea&background=0D1117&border=30363D&ring=58A6FF&fire=58A6FF&currStreakNum=FFFFFF&sideNums=8B949E&currStreakLabel=58A6FF&dates=8B949E&sideLabels=58A6FF"
 />
 
 </div>
