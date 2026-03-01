@@ -51,6 +51,29 @@
 
 <br/>
 
+### 🏆 Codeforces Performance
+
+<a href="https://codeforces.com/profile/lsyurea">
+  <img 
+    src="https://codeforces-readme-stats.vercel.app/api/card?username=lsyurea&theme=github_dark&background=0D1117&border_color=30363D&title_color=58A6FF&text_color=8B949E"
+    alt="Codeforces Stats"
+  />
+</a>
+
+<br/>
+
+
+### 📊 Kaggle Profile
+
+<a href="https://www.kaggle.com/leesiyuanlsyurea">
+  <img 
+    src="https://img.shields.io/badge/Kaggle-View%20Profile-0D1117?style=for-the-badge&logo=kaggle&logoColor=58A6FF&labelColor=0D1117&color=30363D"
+    alt="Kaggle Profile"
+  />
+</a>
+
+<br/>
+
 ### 📈 GitHub Streak Metrics
 
 <img 
