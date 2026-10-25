@@ -52,45 +52,12 @@
 
 <div align="center">
 
-### 🧠 LeetCode Performance
+<a href="https://leetcode.com/u/lsy_urea"><img src="https://img.shields.io/badge/LeetCode-View%20Profile-0D1117?style=for-the-badge&logo=leetcode&logoColor=58A6FF&labelColor=0D1117&color=30363D" alt="LeetCode Profile" /></a>
+<a href="https://codeforces.com/profile/lsyurea"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fcodeforces.com%2Fapi%2Fuser.info%3Fhandles%3Dlsyurea&query=%24.result%5B0%5D.rating&label=Codeforces&prefix=Rating%20&style=for-the-badge&logo=codeforces&logoColor=58A6FF&labelColor=0D1117&color=30363D" alt="Codeforces Rating" /></a>
+<a href="https://www.kaggle.com/leesiyuanlsyurea"><img src="https://img.shields.io/badge/Kaggle-View%20Profile-0D1117?style=for-the-badge&logo=kaggle&logoColor=58A6FF&labelColor=0D1117&color=30363D" alt="Kaggle Profile" /></a>
 
-<a href="https://leetcode.com/u/lsy_urea">
-  <img 
-    src="https://leetcard.jacoblin.cool/lsy_urea?theme=dark&font=Ropa%20Sans&ext=heatmap" 
-    alt="LeetCode Stats"
-  />
-</a>
-
-<br/>
-
-### 🏆 Codeforces Performance
-
-<a href="https://codeforces.com/profile/lsyurea">
-  <img 
-    src="https://codeforces-readme-stats.vercel.app/api/card?username=lsyurea&theme=github_dark&background=0D1117&border_color=30363D&title_color=58A6FF&text_color=8B949E"
-    alt="Codeforces Stats"
-  />
-</a>
-
-<br/>
-
-
-### 📊 Kaggle Profile
-
-<a href="https://www.kaggle.com/leesiyuanlsyurea">
-  <img 
-    src="https://img.shields.io/badge/Kaggle-View%20Profile-0D1117?style=for-the-badge&logo=kaggle&logoColor=58A6FF&labelColor=0D1117&color=30363D"
-    alt="Kaggle Profile"
-  />
-</a>
-
-<br/>
-
-### 📈 GitHub Streak Metrics
-
-<img 
-  src="https://github-readme-streak-stats.herokuapp.com/?user=lsyurea&background=0D1117&border=30363D&ring=58A6FF&fire=58A6FF&currStreakNum=FFFFFF&sideNums=8B949E&currStreakLabel=58A6FF&dates=8B949E&sideLabels=58A6FF"
-/>
+<a href="https://leetcode.com/u/lsy_urea"><img width="49%" src="https://leetcard.jacoblin.cool/lsy_urea?theme=dark&font=Ropa%20Sans&colors=0d1117,30363d,e6edf3,8b949e,58a6ff,3fb950,d29922,f85149" alt="LeetCode Stats" /></a>
+<img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=lsyurea&background=0D1117&border=30363D&ring=58A6FF&fire=58A6FF&currStreakNum=FFFFFF&sideNums=8B949E&currStreakLabel=58A6FF&dates=8B949E&sideLabels=58A6FF" alt="GitHub Streak" />
 
 </div>
 
