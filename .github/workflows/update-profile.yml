@@ -1,0 +1,59 @@
+name: Update profile
+
+# Refreshes every image in README.md daily: the Open Source card via the shared
+# workflow in lsyurea/Open-Source, then this repo's own cards and badges.
+on:
+  schedule:
+    - cron: "47 2 * * *" # daily, 30 minutes after the Open-Source board
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - profile.config.json
+      - scripts/**
+      - .github/workflows/update-profile.yml
+
+permissions:
+  contents: write
+
+jobs:
+  board:
+    uses: lsyurea/Open-Source/.github/workflows/update-board.yml@main
+    with:
+      layout: profile
+
+  cards:
+    needs: board
+    # Still refresh the other cards if the open source scan fails.
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: update-board
+      cancel-in-progress: false
+    steps:
+      # Check out main rather than the triggering commit so this sees the board job's push.
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Build cards
+        run: node scripts/build-cards.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit card changes
+        run: |
+          if [ -z "$(git status --porcelain -- assets)" ]; then
+            echo "Cards unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets
+          git commit -m "chore: update profile cards"
+          git push
