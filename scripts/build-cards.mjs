@@ -199,59 +199,53 @@ function leetcodeCard(stats, logo) {
   const body = cardHeader(logo, "#ffa116", "LeetCode", meta);
 
   // Ring: share of all problems solved
-  body.push(...ringStat(stats.solved.All / stats.total.All, fmt(stats.solved.All), "solved"));
+  const cx = CARD.pad + 54;
+  const cy = 114;
+  body.push(...ring(cx, cy, 42, 8, stats.solved.All / stats.total.All));
+  body.push(svgText(cx, cy + 6, fmt(stats.solved.All), { fill: THEME.ink, "font-size": 26, "font-weight": 600, "text-anchor": "middle" }));
+  body.push(svgText(cx, cy + 24, "solved", { fill: THEME.text, "font-size": 12, "text-anchor": "middle" }));
+
+  const x = 148;
+  const w = CARD.width - CARD.pad - x;
   ["Easy", "Medium", "Hard"].forEach((level, i) => {
+    const y = 76 + i * 36;
     const solved = stats.solved[level];
     const total = stats.total[level];
-    const row = statRow(i);
-    const { x, y, width } = row;
-    body.push(...statLabel(row, level, ["", fmt(solved), ` / ${fmt(total)}`]));
-    body.push(`<rect x="${x}" y="${y + 9}" width="${width}" height="6" rx="3" fill="${THEME.border}"/>`);
-    body.push(`<rect x="${x}" y="${y + 9}" width="${round(Math.max(6, (width * solved) / total))}" height="6" rx="3" fill="${THEME[level.toLowerCase()]}"/>`);
+    body.push(svgText(x, y, level, { fill: THEME.ink, "font-size": 13, "font-weight": 500 }));
+    body.push(richText(x + w, y, ["", fmt(solved), ` / ${fmt(total)}`], { fill: THEME.text, "font-size": 12, "text-anchor": "end" }));
+    body.push(`<rect x="${x}" y="${y + 9}" width="${w}" height="6" rx="3" fill="${THEME.border}"/>`);
+    body.push(`<rect x="${x}" y="${y + 9}" width="${round(Math.max(6, (w * solved) / total))}" height="6" rx="3" fill="${THEME[level.toLowerCase()]}"/>`);
   });
   return card(body, `LeetCode: ${stats.solved.All} problems solved`);
 }
 
 function streakCard(login, s, logo) {
+  const { width, pad } = CARD;
   const body = cardHeader(logo, THEME.ink, "Contribution Streak", ["", `@${login}`, ""]);
-  const days = (n) => ["", fmt(n), n === 1 ? " day" : " days"];
 
-  // Ring fills as the current streak approaches the longest one.
-  body.push(...ringStat(s.longest.length ? s.current.length / s.longest.length : 0, fmt(s.current.length), "day streak"));
+  // Ring fills as the current streak approaches the longest one, labelled below.
+  const cx = pad + 54;
+  const cy = 92;
+  body.push(...ring(cx, cy, 34, 6, s.longest.length ? s.current.length / s.longest.length : 0));
+  body.push(svgText(cx, cy + 9, fmt(s.current.length), { fill: THEME.ink, "font-size": 26, "font-weight": 600, "text-anchor": "middle" }));
+  body.push(svgText(cx, cy + 55, "Current streak", { fill: THEME.title, "font-size": 12, "font-weight": 600, "text-anchor": "middle" }));
+  body.push(svgText(cx, cy + 71, dateRange(s.current, false), { fill: THEME.text, "font-size": 12, "text-anchor": "middle" }));
+
+  const x = 148;
+  body.push(`<line x1="${x}" x2="${width - pad}" y1="113" y2="113" stroke="${THEME.border}"/>`);
   [
-    ["Current streak", days(s.current.length), dateRange(s.current)],
-    ["Longest streak", days(s.longest.length), dateRange(s.longest)],
-    ["Total contributions", ["", fmt(s.total), ""], s.first ? `${formatDate(s.first)} – Present` : "No contributions yet"],
-  ].forEach(([label, value, detail], i) => {
-    const row = statRow(i);
-    body.push(...statLabel(row, label, value));
-    body.push(svgText(row.x, row.y + 16, detail, { fill: THEME.text, "font-size": 12 }));
+    ["Longest streak", dateRange(s.longest), [fmt(s.longest.length), s.longest.length === 1 ? " day" : " days"]],
+    ["Total contributions", s.first ? `Since ${formatDate(s.first)}` : "No contributions yet", [fmt(s.total), ""]],
+  ].forEach(([label, dates, [value, unit]], i) => {
+    const y = 82 + i * 50;
+    body.push(svgText(x, y, label, { fill: THEME.ink, "font-size": 13, "font-weight": 500 }));
+    body.push(svgText(x, y + 16, dates, { fill: THEME.text, "font-size": 12 }));
+    body.push(
+      `<text x="${width - pad}" y="${y}" fill="${THEME.text}" font-size="12" text-anchor="end">` +
+        `<tspan fill="${THEME.ink}" font-size="20" font-weight="600">${escapeXml(value)}</tspan>${escapeXml(unit)}</text>`,
+    );
   });
   return card(body, `GitHub: ${s.total} contributions, current streak ${s.current.length} days, longest ${s.longest.length} days`);
-}
-
-// Both cards share one layout: a ring on the left, three stat rows on the right.
-const RING = { cx: CARD.pad + 54, cy: 114, r: 42, stroke: 8 };
-
-function ringStat(share, value, label) {
-  const { cx, cy, r, stroke } = RING;
-  return [
-    ...ring(cx, cy, r, stroke, share),
-    svgText(cx, cy + 6, value, { fill: THEME.ink, "font-size": 26, "font-weight": 600, "text-anchor": "middle" }),
-    svgText(cx, cy + 24, label, { fill: THEME.text, "font-size": 12, "text-anchor": "middle" }),
-  ];
-}
-
-function statRow(i) {
-  const x = RING.cx + RING.r + RING.stroke / 2 + 28;
-  return { x, y: 76 + i * 36, width: CARD.width - CARD.pad - x };
-}
-
-function statLabel({ x, y, width }, label, value) {
-  return [
-    svgText(x, y, label, { fill: THEME.ink, "font-size": 13, "font-weight": 500 }),
-    richText(x + width, y, value, { fill: THEME.text, "font-size": 12, "text-anchor": "end" }),
-  ];
 }
 
 // meta is [prefix, emphasised value, suffix], right-aligned in the header.
@@ -374,12 +368,13 @@ function typingHeader({ lines, color = THEME.title, width = 600, height = 50, fo
   );
 }
 
-function dateRange({ length, start, end }) {
+// withYears = false suits the current streak, which always ends about today.
+function dateRange({ length, start, end }, withYears = true) {
   if (!length) return "Start one today";
   const thisYear = String(new Date().getUTCFullYear());
-  const showYear = start.slice(0, 4) !== thisYear || end.slice(0, 4) !== thisYear;
+  const showYear = withYears && (start.slice(0, 4) !== thisYear || end.slice(0, 4) !== thisYear);
   if (start === end) return formatDate(start, showYear);
-  return start.slice(0, 4) === end.slice(0, 4)
+  return !withYears || start.slice(0, 4) === end.slice(0, 4)
     ? `${formatDate(start, false)} – ${formatDate(end, showYear)}`
     : `${formatDate(start)} – ${formatDate(end)}`;
 }
