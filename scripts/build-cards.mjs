@@ -23,7 +23,14 @@ const THEME = {
 const FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif";
 const MONO = "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace";
 const BADGE_FONT = "Verdana, 'DejaVu Sans', Geneva, sans-serif";
-const CARD = { width: 500, height: 200 };
+// The README's status dashboard is a row of badges over a row of cards, laid out
+// by inline wrapping (GitHub strips CSS): two cards fit side by side in the
+// ~760px profile column on laptops and stack one per row on narrower screens,
+// where images shrink to the column width. Badges are sized so three of them
+// span the same width as two cards, given the ~3.8px space GitHub leaves
+// between images.
+const CARD = { width: 372, height: 182, pad: 20 };
+const BADGE_WIDTH = (2 * CARD.width - 3.8) / 3;
 
 const LEETCODE_QUERY = `
 query ($username: String!) {
@@ -192,54 +199,68 @@ function leetcodeCard(stats, logo) {
   const body = cardHeader(logo, "#ffa116", "LeetCode", meta);
 
   // Ring: share of all problems solved
-  const cx = 100;
-  const cy = 120;
-  body.push(...ring(cx, cy, 46, 8, stats.solved.All / stats.total.All));
-  body.push(svgText(cx, cy + 6, fmt(stats.solved.All), { fill: THEME.ink, "font-size": 26, "font-weight": 600, "text-anchor": "middle" }));
-  body.push(svgText(cx, cy + 24, "solved", { fill: THEME.text, "font-size": 12, "text-anchor": "middle" }));
-
-  const x = 190;
-  const w = 286;
+  body.push(...ringStat(stats.solved.All / stats.total.All, fmt(stats.solved.All), "solved"));
   ["Easy", "Medium", "Hard"].forEach((level, i) => {
-    const y = 84 + i * 38;
     const solved = stats.solved[level];
     const total = stats.total[level];
-    body.push(svgText(x, y, level, { fill: THEME.ink, "font-size": 13, "font-weight": 500 }));
-    body.push(svgText(x + w, y, `${fmt(solved)} / ${fmt(total)}`, { fill: THEME.text, "font-size": 12, "text-anchor": "end" }));
-    body.push(`<rect x="${x}" y="${y + 9}" width="${w}" height="6" rx="3" fill="${THEME.border}"/>`);
-    body.push(`<rect x="${x}" y="${y + 9}" width="${round(Math.max(6, (w * solved) / total))}" height="6" rx="3" fill="${THEME[level.toLowerCase()]}"/>`);
+    const row = statRow(i);
+    const { x, y, width } = row;
+    body.push(...statLabel(row, level, ["", fmt(solved), ` / ${fmt(total)}`]));
+    body.push(`<rect x="${x}" y="${y + 9}" width="${width}" height="6" rx="3" fill="${THEME.border}"/>`);
+    body.push(`<rect x="${x}" y="${y + 9}" width="${round(Math.max(6, (width * solved) / total))}" height="6" rx="3" fill="${THEME[level.toLowerCase()]}"/>`);
   });
   return card(body, `LeetCode: ${stats.solved.All} problems solved`);
 }
 
 function streakCard(login, s, logo) {
   const body = cardHeader(logo, THEME.ink, "Contribution Streak", ["", `@${login}`, ""]);
-  for (const x of [171, 329]) body.push(`<line x1="${x}" x2="${x}" y1="70" y2="176" stroke="${THEME.border}"/>`);
-
-  const side = (cx, value, label, range) => [
-    svgText(cx, 116, fmt(value), { fill: THEME.ink, "font-size": 28, "font-weight": 600, "text-anchor": "middle" }),
-    svgText(cx, 140, label, { fill: THEME.text, "font-size": 12, "text-anchor": "middle" }),
-    svgText(cx, 160, range, { fill: THEME.text, "font-size": 11, "text-anchor": "middle" }),
-  ];
-  body.push(...side(92, s.total, "Total contributions", s.first ? `${formatDate(s.first)} – Present` : "No contributions yet"));
-  body.push(...side(408, s.longest.length, "Longest streak", dateRange(s.longest)));
+  const days = (n) => ["", fmt(n), n === 1 ? " day" : " days"];
 
   // Ring fills as the current streak approaches the longest one.
-  const cy = 102;
-  body.push(...ring(250, cy, 32, 6, s.longest.length ? s.current.length / s.longest.length : 0));
-  body.push(svgText(250, cy + 10, fmt(s.current.length), { fill: THEME.ink, "font-size": 28, "font-weight": 600, "text-anchor": "middle" }));
-  body.push(svgText(250, 160, "Current streak", { fill: THEME.title, "font-size": 12, "font-weight": 600, "text-anchor": "middle" }));
-  body.push(svgText(250, 178, dateRange(s.current), { fill: THEME.text, "font-size": 11, "text-anchor": "middle" }));
+  body.push(...ringStat(s.longest.length ? s.current.length / s.longest.length : 0, fmt(s.current.length), "day streak"));
+  [
+    ["Current streak", days(s.current.length), dateRange(s.current)],
+    ["Longest streak", days(s.longest.length), dateRange(s.longest)],
+    ["Total contributions", ["", fmt(s.total), ""], s.first ? `${formatDate(s.first)} – Present` : "No contributions yet"],
+  ].forEach(([label, value, detail], i) => {
+    const row = statRow(i);
+    body.push(...statLabel(row, label, value));
+    body.push(svgText(row.x, row.y + 16, detail, { fill: THEME.text, "font-size": 12 }));
+  });
   return card(body, `GitHub: ${s.total} contributions, current streak ${s.current.length} days, longest ${s.longest.length} days`);
 }
 
-// meta is [prefix, emphasised value, suffix], right-aligned in the header.
-function cardHeader(logo, logoColor, title, [prefix, value, suffix]) {
+// Both cards share one layout: a ring on the left, three stat rows on the right.
+const RING = { cx: CARD.pad + 54, cy: 114, r: 42, stroke: 8 };
+
+function ringStat(share, value, label) {
+  const { cx, cy, r, stroke } = RING;
   return [
-    `<svg x="24" y="20" width="20" height="20" viewBox="0 0 24 24"><path d="${logo}" fill="${logoColor}"/></svg>`,
-    svgText(54, 36, title, { fill: THEME.title, "font-size": 16, "font-weight": 600 }),
-    `<text x="${CARD.width - 24}" y="36" font-size="12" fill="${THEME.text}" text-anchor="end">${escapeXml(prefix)}` +
-      `<tspan fill="${THEME.ink}" font-weight="600">${escapeXml(value)}</tspan>${escapeXml(suffix)}</text>`,
+    ...ring(cx, cy, r, stroke, share),
+    svgText(cx, cy + 6, value, { fill: THEME.ink, "font-size": 26, "font-weight": 600, "text-anchor": "middle" }),
+    svgText(cx, cy + 24, label, { fill: THEME.text, "font-size": 12, "text-anchor": "middle" }),
+  ];
+}
+
+function statRow(i) {
+  const x = RING.cx + RING.r + RING.stroke / 2 + 28;
+  return { x, y: 76 + i * 36, width: CARD.width - CARD.pad - x };
+}
+
+function statLabel({ x, y, width }, label, value) {
+  return [
+    svgText(x, y, label, { fill: THEME.ink, "font-size": 13, "font-weight": 500 }),
+    richText(x + width, y, value, { fill: THEME.text, "font-size": 12, "text-anchor": "end" }),
+  ];
+}
+
+// meta is [prefix, emphasised value, suffix], right-aligned in the header.
+function cardHeader(logo, logoColor, title, meta) {
+  const { width, pad } = CARD;
+  return [
+    `<svg x="${pad}" y="18" width="20" height="20" viewBox="0 0 24 24"><path d="${logo}" fill="${logoColor}"/></svg>`,
+    svgText(pad + 30, 34, title, { fill: THEME.title, "font-size": 16, "font-weight": 600 }),
+    richText(width - pad, 34, meta, { fill: THEME.text, "font-size": 12, "text-anchor": "end" }),
   ];
 }
 
@@ -265,7 +286,8 @@ function card(body, title) {
   );
 }
 
-// Shields-style "for-the-badge": dark label with logo, grey message. textLength
+// Shields-style "for-the-badge": dark label with logo, grey message centred in
+// the rest of the fixed width so the badges line up as a grid. textLength
 // pins each text run to the computed width so the layout holds in any font.
 function badge(logo, label, message) {
   const height = 28;
@@ -274,18 +296,18 @@ function badge(logo, label, message) {
   const labelWidth = capsWidth(labelText, false);
   const messageWidth = capsWidth(messageText, true);
   const split = 30 + labelWidth + 10;
-  const width = split + 12 + messageWidth + 12;
+  const width = round(Math.max(BADGE_WIDTH, split + 12 + messageWidth + 12));
   return (
     `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img">\n` +
     `<title>${escapeXml(`${label}: ${message}`)}</title>\n` +
     `<clipPath id="r"><rect width="${width}" height="${height}" rx="6"/></clipPath>\n` +
     `<g clip-path="url(#r)"><rect width="${split}" height="${height}" fill="${THEME.bg}"/>` +
-    `<rect x="${split}" width="${width - split}" height="${height}" fill="${THEME.border}"/></g>\n` +
+    `<rect x="${split}" width="${round(width - split)}" height="${height}" fill="${THEME.border}"/></g>\n` +
     `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="5.5" fill="none" stroke="${THEME.border}"/>\n` +
     `<svg x="10" y="7" width="14" height="14" viewBox="0 0 24 24"><path d="${logo}" fill="${THEME.title}"/></svg>\n` +
     `<g font-family="${BADGE_FONT}" font-size="10" fill="#ffffff">` +
     `<text x="30" y="18" textLength="${labelWidth}" lengthAdjust="spacing">${escapeXml(labelText)}</text>` +
-    `<text x="${split + 12}" y="18" font-weight="700" textLength="${messageWidth}" lengthAdjust="spacing">${escapeXml(messageText)}</text>` +
+    `<text x="${round((split + width) / 2)}" y="18" font-weight="700" text-anchor="middle" textLength="${messageWidth}" lengthAdjust="spacing">${escapeXml(messageText)}</text>` +
     `</g>\n</svg>\n`
   );
 }
@@ -372,8 +394,19 @@ function formatDate(iso, withYear = true) {
 }
 
 function svgText(x, y, content, attrs) {
-  const extra = Object.entries(attrs).map(([key, value]) => ` ${key}="${value}"`).join("");
-  return `<text x="${round(x)}" y="${round(y)}"${extra}>${escapeXml(String(content))}</text>`;
+  return `<text x="${round(x)}" y="${round(y)}"${attrList(attrs)}>${escapeXml(String(content))}</text>`;
+}
+
+// [prefix, value, suffix] with the value emphasised.
+function richText(x, y, [prefix, value, suffix], attrs) {
+  return (
+    `<text x="${round(x)}" y="${round(y)}"${attrList(attrs)}>${escapeXml(prefix)}` +
+    `<tspan fill="${THEME.ink}" font-weight="600">${escapeXml(value)}</tspan>${escapeXml(suffix)}</text>`
+  );
+}
+
+function attrList(attrs) {
+  return Object.entries(attrs).map(([key, value]) => ` ${key}="${value}"`).join("");
 }
 
 function escapeXml(text) {

@@ -56,8 +56,8 @@
 <a href="https://codeforces.com/profile/lsyurea"><img src="assets/badges/codeforces.svg" alt="Codeforces rating" /></a>
 <a href="https://www.kaggle.com/leesiyuanlsyurea"><img src="assets/badges/kaggle.svg" alt="Kaggle profile" /></a>
 
-<a href="https://leetcode.com/u/lsy_urea"><img width="49%" src="assets/leetcode.svg" alt="LeetCode stats" /></a>
-<img width="49%" src="assets/streak.svg" alt="GitHub contribution streak" />
+<a href="https://leetcode.com/u/lsy_urea"><img src="assets/leetcode.svg" alt="LeetCode stats" /></a>
+<img src="assets/streak.svg" alt="GitHub contribution streak" />
 
 </div>
 
