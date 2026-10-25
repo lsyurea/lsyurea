@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="518" viewBox="0 0 700 518" role="img" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif">
+<title>Open source contributions: 2 merged PRs across 1 repo with 20K+ stars</title>
+<defs><clipPath id="avatar-0"><rect x="28" y="354" width="24" height="24" rx="6"/></clipPath></defs>
+<rect x="0.5" y="0.5" width="699" height="517" rx="10" fill="#0d1117" stroke="#30363d"/>
+<text x="28" y="46" fill="#58a6ff" font-size="20" font-weight="600">Open Source Contributions</text>
+<text x="672" y="46" fill="#8b949e" font-size="12" text-anchor="end">Repos with 20K+ ★</text>
+<text x="28" y="102" fill="#e6edf3" font-size="28" font-weight="600">2</text>
+<text x="28" y="124" fill="#8b949e" font-size="12">Merged PRs</text>
+<text x="189" y="102" fill="#e6edf3" font-size="28" font-weight="600">1</text>
+<text x="189" y="124" fill="#8b949e" font-size="12">Repository</text>
+<text x="350" y="102" fill="#e6edf3" font-size="28" font-weight="600">2</text>
+<text x="350" y="124" fill="#8b949e" font-size="12">Commits</text>
+<text x="511" y="102" font-size="28" font-weight="600"><tspan fill="#3fb950">+9</tspan><tspan dx="6" font-size="16" fill="#f85149">−1</tspan></text>
+<text x="511" y="124" fill="#8b949e" font-size="12">Lines changed</text>
+<line x1="28" x2="672" y1="148.5" y2="148.5" stroke="#30363d"/>
+<text x="28" y="178" fill="#e6edf3" font-size="13" font-weight="600">Pull requests per month</text>
+<rect x="486.8" y="169" width="10" height="10" rx="3" fill="#3987e5"/>
+<text x="502.8" y="178" fill="#8b949e" font-size="12">Merged</text>
+<rect x="560.1" y="169" width="10" height="10" rx="3" fill="#199e70"/>
+<text x="576.1" y="178" fill="#8b949e" font-size="12">Open</text>
+<rect x="617.8" y="169" width="10" height="10" rx="3" fill="#d95926"/>
+<text x="633.8" y="178" fill="#8b949e" font-size="12">Closed</text>
+<line x1="28" x2="672" y1="272.5" y2="272.5" stroke="#30363d"/>
+<text x="54.8" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Nov ’25</text>
+<text x="108.5" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Dec</text>
+<text x="162.2" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Jan ’26</text>
+<text x="215.8" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Feb</text>
+<text x="269.5" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Mar</text>
+<text x="323.2" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Apr</text>
+<text x="376.8" y="290" fill="#8b949e" font-size="11" text-anchor="middle">May</text>
+<text x="430.5" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Jun</text>
+<text x="484.2" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Jul</text>
+<text x="537.8" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Aug</text>
+<text x="591.5" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Sep</text>
+<path d="M635.2,272V220A4,4 0 0 1 639.2,216H651.2A4,4 0 0 1 655.2,220V272Z" fill="#3987e5"/>
+<text x="645.2" y="210" fill="#8b949e" font-size="12" text-anchor="middle">2</text>
+<text x="645.2" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Oct</text>
+<line x1="28" x2="672" y1="304.5" y2="304.5" stroke="#30363d"/>
+<text x="28" y="334" fill="#e6edf3" font-size="13" font-weight="600">Repositories</text>
+<image href="data:image/jpeg;base64,/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIADAAMAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APf6KKwfE/ia38PWnaS8kH7qLP8A48fb+dTOaguaWxpSpTqzUIK7Y7xF4lttBhRTiS7l4jiz/wCPH0H863K838M+GrnXr3+3dbLPG7b0Rusp7H2X0Hf6den8SjxEZrL+w9mzcfOzt9sZz269K56dWbi6klp0XU7q+FpRnGhCS5teZva/b5HQ0U3zE8zy96+Zjdtzzj1x6U6uo80iuZ0tbWW4kOI4kLsfYDJrzTwzpzeLvEN1qupDfBGwYxnoxP3V+gA/l613niRHfw1qSp977M/8ua534ZyIdEu4xjzFudzfQquP5GuSsuetCD23PWwknSwlWtD4tFfsmdqAFAAAAHAApaKK6zyTzXxMbvw14yg1hJpJIrg5wx/hGAyfTBGPw9K9IjdZY1kQ5VgGB9Qa4T4nSILLT4zjzDIzD6ADP8xXYaOjR6JYI/31tow312iuSj7tacFtueri/wB5hKNV76r1S2LjoroyOAVYYIPcV5aj3XgDxNIGjeTT5+mP40zxj/aXP+c16nVW/wBOtNUtWtr2BZoj2bsfUHsa0rUnOzi7NbHPg8UqLlGorwlo1+vqiPTtZ0/VYhJZ3ccuRyobDD6jqKZqeuabpELSXl1GhA4jBy7fQda5K8+GMDyFrPUXiXskse/H4gj+VOsvhlbRyBr2/kmUfwRpsz+OTWftMRtya976HR9Xy+/N7V27W1+/YybdLrx54pFxLEU0+AjIPRUBzt/3m/z0r1LoMCq9lY22nWq21pCkMK9FUfqfU+9WK0o0nTTcndvc5sZilXajBWhHRL+urP/Z" x="28" y="354" width="24" height="24" clip-path="url(#avatar-0)"/>
+<text x="64" y="370" fill="#e6edf3" font-size="13" font-weight="500">pytorch/pytorch</text>
+<text x="430" y="370" fill="#8b949e" font-size="12" text-anchor="end">★ 105.1K</text>
+<circle cx="450" cy="366" r="4" fill="#3572A5"/>
+<text x="460" y="370" fill="#8b949e" font-size="12">Python</text>
+<path d="M540,362H640A4,4 0 0 1 644,366V366A4,4 0 0 1 640,370H540Z" fill="#3987e5"/>
+<text x="652" y="370" fill="#8b949e" font-size="12">2</text>
+<line x1="28" x2="672" y1="392.5" y2="392.5" stroke="#30363d"/>
+<text x="28" y="422" fill="#e6edf3" font-size="13" font-weight="600">Latest pull requests</text>
+<circle cx="32" cy="451" r="4" fill="#3987e5"/>
+<text x="672" y="455" fill="#8b949e" font-size="12" text-anchor="end">pytorch/pytorch · Oct 24, 2026</text>
+<text x="44" y="455" fill="#e6edf3" font-size="13">[MPS] Break .grad reference cycles in TestMPS._linear_helper</text>
+<circle cx="32" cy="481" r="4" fill="#3987e5"/>
+<text x="672" y="485" fill="#8b949e" font-size="12" text-anchor="end">pytorch/pytorch · Oct 23, 2026</text>
+<text x="44" y="485" fill="#e6edf3" font-size="13">[MPS] Halve test_64bit_binops peak memory so it fits 24 GB Macs</text>
+</svg>

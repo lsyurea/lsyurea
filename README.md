@@ -36,6 +36,18 @@
 
 ---
 
+## 🌍 Open Source Contributions
+
+<div align="center">
+
+<!-- BOARD:START -->
+<a href="https://lsyurea.github.io/Open-Source/"><img src="assets/open-source.svg" alt="Open source contributions: 2 merged PRs across 1 repo with 20K+ stars" /></a>
+<!-- BOARD:END -->
+
+</div>
+
+---
+
 ## 🚦 Status Dashboard
 
 <div align="center">
