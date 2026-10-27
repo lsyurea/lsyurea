@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Builds every image on this profile README (typing header, badges, LeetCode
 // and contribution-streak cards) as SVGs in assets/, so viewing the profile
-// doesn't depend on third-party image services. Runs daily from
+// doesn't depend on third-party image services. Each image comes in a -light
+// and a -dark version; the README picks one with <picture>. Runs daily from
 // .github/workflows/update-profile.yml; if a data source fails, that image
 // keeps its last good version.
 //
@@ -15,10 +16,16 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const ASSETS = path.join(ROOT, "assets");
 const LOGO_DIR = path.join(ROOT, "scripts", "logos"); // Simple Icons 16.35.0, CC0
 
-// Same GitHub-dark palette as the Open Source card from lsyurea/Open-Source.
-const THEME = {
-  bg: "#0d1117", border: "#30363d", title: "#58a6ff", ink: "#e6edf3", text: "#8b949e",
-  easy: "#3fb950", medium: "#d29922", hard: "#f85149",
+// Same GitHub light and dark palettes as the Open Source card from lsyurea/Open-Source.
+const THEMES = {
+  light: {
+    bg: "#ffffff", border: "#d1d9e0", title: "#0969da", ink: "#1f2328", text: "#59636e", badgeText: "#1f2328",
+    easy: "#1a7f37", medium: "#9a6700", hard: "#d1242f",
+  },
+  dark: {
+    bg: "#0d1117", border: "#30363d", title: "#58a6ff", ink: "#e6edf3", text: "#8b949e", badgeText: "#ffffff",
+    easy: "#3fb950", medium: "#d29922", hard: "#f85149",
+  },
 };
 const FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif";
 const MONO = "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace";
@@ -60,32 +67,44 @@ async function main() {
   let leetcode;
   const leetcodeStats = () => (leetcode ??= fetchLeetcode(config.leetcode));
 
+  // Each build fetches its data once and returns a renderer for either theme.
   const outputs = {
-    "header.svg": () => typingHeader(config.typing),
-    "badges/leetcode.svg": async () => {
+    header: () => (theme) => typingHeader(theme, config.typing),
+    "badges/leetcode": async () => {
       const { contest } = await leetcodeStats();
-      return badge(logos.leetcode, "LeetCode", contest ? `Rating ${Math.round(contest.rating)}` : "View Profile");
+      return (theme) => badge(theme, logos.leetcode, "LeetCode", contest ? `Rating ${Math.round(contest.rating)}` : "View Profile");
     },
-    "badges/codeforces.svg": async () => {
+    "badges/codeforces": async () => {
       const user = await fetchCodeforces(config.codeforces);
-      return badge(logos.codeforces, "Codeforces", user.rating ? `Rating ${user.rating}` : "Unrated");
+      return (theme) => badge(theme, logos.codeforces, "Codeforces", user.rating ? `Rating ${user.rating}` : "Unrated");
     },
-    "badges/kaggle.svg": () => badge(logos.kaggle, "Kaggle", "View Profile"),
-    "leetcode.svg": async () => leetcodeCard(await leetcodeStats(), logos.leetcode),
-    "streak.svg": async () => streakCard(config.github, streaks(await fetchContributionDays(config.github)), logos.github),
+    "badges/kaggle": () => (theme) => badge(theme, logos.kaggle, "Kaggle", "View Profile"),
+    leetcode: async () => {
+      const stats = await leetcodeStats();
+      return (theme) => leetcodeCard(theme, stats, logos.leetcode);
+    },
+    streak: async () => {
+      const s = streaks(await fetchContributionDays(config.github));
+      return (theme) => streakCard(theme, config.github, s, logos.github);
+    },
   };
 
   let failed = 0;
-  for (const [file, build] of Object.entries(outputs)) {
+  for (const [name, build] of Object.entries(outputs)) {
     try {
-      const target = path.join(ASSETS, file);
-      await mkdir(path.dirname(target), { recursive: true });
-      await writeFile(target, await build());
-      console.log(`Built assets/${file}`);
+      // Render both themes before writing either, so they never fall out of sync.
+      const render = await build();
+      const files = Object.entries(THEMES).map(([mode, theme]) => [`${name}-${mode}.svg`, render(theme)]);
+      for (const [file, svg] of files) {
+        const target = path.join(ASSETS, file);
+        await mkdir(path.dirname(target), { recursive: true });
+        await writeFile(target, svg);
+        console.log(`Built assets/${file}`);
+      }
     } catch (error) {
       failed++;
       // ::warning:: shows up as an annotation on the Actions run.
-      console.log(`::warning::Kept previous assets/${file}: ${error.message}`);
+      console.log(`::warning::Kept previous assets/${name}-*.svg: ${error.message}`);
     }
   }
   if (failed === Object.keys(outputs).length) process.exit(1);
@@ -192,18 +211,18 @@ function streaks(days) {
   return { total, first, current, longest };
 }
 
-function leetcodeCard(stats, logo) {
+function leetcodeCard(theme, stats, logo) {
   const meta = stats.contest
     ? ["Rating ", String(Math.round(stats.contest.rating)), ` · Top ${stats.contest.topPercentage}%`]
     : ["Rank ", `#${fmt(stats.ranking)}`, ""];
-  const body = cardHeader(logo, "#ffa116", "LeetCode", meta);
+  const body = cardHeader(theme, logo, "#ffa116", "LeetCode", meta);
 
   // Ring: share of all problems solved
   const cx = CARD.pad + 54;
   const cy = 114;
-  body.push(...ring(cx, cy, 42, 8, stats.solved.All / stats.total.All));
-  body.push(svgText(cx, cy + 6, fmt(stats.solved.All), { fill: THEME.ink, "font-size": 26, "font-weight": 600, "text-anchor": "middle" }));
-  body.push(svgText(cx, cy + 24, "solved", { fill: THEME.text, "font-size": 12, "text-anchor": "middle" }));
+  body.push(...ring(theme, cx, cy, 42, 8, stats.solved.All / stats.total.All));
+  body.push(svgText(cx, cy + 6, fmt(stats.solved.All), { fill: theme.ink, "font-size": 26, "font-weight": 600, "text-anchor": "middle" }));
+  body.push(svgText(cx, cy + 24, "solved", { fill: theme.text, "font-size": 12, "text-anchor": "middle" }));
 
   const x = 148;
   const w = CARD.width - CARD.pad - x;
@@ -211,79 +230,79 @@ function leetcodeCard(stats, logo) {
     const y = 76 + i * 36;
     const solved = stats.solved[level];
     const total = stats.total[level];
-    body.push(svgText(x, y, level, { fill: THEME.ink, "font-size": 13, "font-weight": 500 }));
-    body.push(richText(x + w, y, ["", fmt(solved), ` / ${fmt(total)}`], { fill: THEME.text, "font-size": 12, "text-anchor": "end" }));
-    body.push(`<rect x="${x}" y="${y + 9}" width="${w}" height="6" rx="3" fill="${THEME.border}"/>`);
-    body.push(`<rect x="${x}" y="${y + 9}" width="${round(Math.max(6, (w * solved) / total))}" height="6" rx="3" fill="${THEME[level.toLowerCase()]}"/>`);
+    body.push(svgText(x, y, level, { fill: theme.ink, "font-size": 13, "font-weight": 500 }));
+    body.push(richText(theme, x + w, y, ["", fmt(solved), ` / ${fmt(total)}`], { fill: theme.text, "font-size": 12, "text-anchor": "end" }));
+    body.push(`<rect x="${x}" y="${y + 9}" width="${w}" height="6" rx="3" fill="${theme.border}"/>`);
+    body.push(`<rect x="${x}" y="${y + 9}" width="${round(Math.max(6, (w * solved) / total))}" height="6" rx="3" fill="${theme[level.toLowerCase()]}"/>`);
   });
-  return card(body, `LeetCode: ${stats.solved.All} problems solved`);
+  return card(theme, body, `LeetCode: ${stats.solved.All} problems solved`);
 }
 
-function streakCard(login, s, logo) {
+function streakCard(theme, login, s, logo) {
   const { width, pad } = CARD;
-  const body = cardHeader(logo, THEME.ink, "Contribution Streak", ["", `@${login}`, ""]);
+  const body = cardHeader(theme, logo, theme.ink, "Contribution Streak", ["", `@${login}`, ""]);
 
   // Ring fills as the current streak approaches the longest one, labelled below.
   const cx = pad + 54;
   const cy = 92;
-  body.push(...ring(cx, cy, 34, 6, s.longest.length ? s.current.length / s.longest.length : 0));
-  body.push(svgText(cx, cy + 9, fmt(s.current.length), { fill: THEME.ink, "font-size": 26, "font-weight": 600, "text-anchor": "middle" }));
-  body.push(svgText(cx, cy + 55, "Current streak", { fill: THEME.title, "font-size": 12, "font-weight": 600, "text-anchor": "middle" }));
-  body.push(svgText(cx, cy + 71, dateRange(s.current, false), { fill: THEME.text, "font-size": 12, "text-anchor": "middle" }));
+  body.push(...ring(theme, cx, cy, 34, 6, s.longest.length ? s.current.length / s.longest.length : 0));
+  body.push(svgText(cx, cy + 9, fmt(s.current.length), { fill: theme.ink, "font-size": 26, "font-weight": 600, "text-anchor": "middle" }));
+  body.push(svgText(cx, cy + 55, "Current streak", { fill: theme.title, "font-size": 12, "font-weight": 600, "text-anchor": "middle" }));
+  body.push(svgText(cx, cy + 71, dateRange(s.current, false), { fill: theme.text, "font-size": 12, "text-anchor": "middle" }));
 
   const x = 148;
-  body.push(`<line x1="${x}" x2="${width - pad}" y1="113" y2="113" stroke="${THEME.border}"/>`);
+  body.push(`<line x1="${x}" x2="${width - pad}" y1="113" y2="113" stroke="${theme.border}"/>`);
   [
     ["Longest streak", dateRange(s.longest), [fmt(s.longest.length), s.longest.length === 1 ? " day" : " days"]],
     ["Total contributions", s.first ? `Since ${formatDate(s.first)}` : "No contributions yet", [fmt(s.total), ""]],
   ].forEach(([label, dates, [value, unit]], i) => {
     const y = 82 + i * 50;
-    body.push(svgText(x, y, label, { fill: THEME.ink, "font-size": 13, "font-weight": 500 }));
-    body.push(svgText(x, y + 16, dates, { fill: THEME.text, "font-size": 12 }));
+    body.push(svgText(x, y, label, { fill: theme.ink, "font-size": 13, "font-weight": 500 }));
+    body.push(svgText(x, y + 16, dates, { fill: theme.text, "font-size": 12 }));
     body.push(
-      `<text x="${width - pad}" y="${y}" fill="${THEME.text}" font-size="12" text-anchor="end">` +
-        `<tspan fill="${THEME.ink}" font-size="20" font-weight="600">${escapeXml(value)}</tspan>${escapeXml(unit)}</text>`,
+      `<text x="${width - pad}" y="${y}" fill="${theme.text}" font-size="12" text-anchor="end">` +
+        `<tspan fill="${theme.ink}" font-size="20" font-weight="600">${escapeXml(value)}</tspan>${escapeXml(unit)}</text>`,
     );
   });
-  return card(body, `GitHub: ${s.total} contributions, current streak ${s.current.length} days, longest ${s.longest.length} days`);
+  return card(theme, body, `GitHub: ${s.total} contributions, current streak ${s.current.length} days, longest ${s.longest.length} days`);
 }
 
 // meta is [prefix, emphasised value, suffix], right-aligned in the header.
-function cardHeader(logo, logoColor, title, meta) {
+function cardHeader(theme, logo, logoColor, title, meta) {
   const { width, pad } = CARD;
   return [
     `<svg x="${pad}" y="18" width="20" height="20" viewBox="0 0 24 24"><path d="${logo}" fill="${logoColor}"/></svg>`,
-    svgText(pad + 30, 34, title, { fill: THEME.title, "font-size": 16, "font-weight": 600 }),
-    richText(width - pad, 34, meta, { fill: THEME.text, "font-size": 12, "text-anchor": "end" }),
+    svgText(pad + 30, 34, title, { fill: theme.title, "font-size": 16, "font-weight": 600 }),
+    richText(theme, width - pad, 34, meta, { fill: theme.text, "font-size": 12, "text-anchor": "end" }),
   ];
 }
 
-function ring(cx, cy, r, stroke, share) {
+function ring(theme, cx, cy, r, stroke, share) {
   const circumference = 2 * Math.PI * r;
   const arc = Math.min(1, Math.max(0, share)) * circumference;
   return [
-    `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${THEME.border}" stroke-width="${stroke}"/>`,
+    `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${theme.border}" stroke-width="${stroke}"/>`,
     arc > 0
-      ? `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${THEME.title}" stroke-width="${stroke}" stroke-linecap="round" ` +
+      ? `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${theme.title}" stroke-width="${stroke}" stroke-linecap="round" ` +
         `stroke-dasharray="${round(arc)} ${round(circumference)}" transform="rotate(-90 ${cx} ${cy})"/>`
       : "",
   ];
 }
 
-function card(body, title) {
+function card(theme, body, title) {
   const { width, height } = CARD;
   return (
     `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" font-family="${FONT}">\n` +
     `<title>${escapeXml(title)}</title>\n` +
-    `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="10" fill="${THEME.bg}" stroke="${THEME.border}"/>\n` +
+    `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="10" fill="${theme.bg}" stroke="${theme.border}"/>\n` +
     `${body.filter(Boolean).join("\n")}\n</svg>\n`
   );
 }
 
-// Shields-style "for-the-badge": dark label with logo, grey message centred in
+// Shields-style "for-the-badge": label with logo, shaded message centred in
 // the rest of the fixed width so the badges line up as a grid. textLength
 // pins each text run to the computed width so the layout holds in any font.
-function badge(logo, label, message) {
+function badge(theme, logo, label, message) {
   const height = 28;
   const labelText = label.toUpperCase();
   const messageText = message.toUpperCase();
@@ -295,11 +314,11 @@ function badge(logo, label, message) {
     `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img">\n` +
     `<title>${escapeXml(`${label}: ${message}`)}</title>\n` +
     `<clipPath id="r"><rect width="${width}" height="${height}" rx="6"/></clipPath>\n` +
-    `<g clip-path="url(#r)"><rect width="${split}" height="${height}" fill="${THEME.bg}"/>` +
-    `<rect x="${split}" width="${round(width - split)}" height="${height}" fill="${THEME.border}"/></g>\n` +
-    `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="5.5" fill="none" stroke="${THEME.border}"/>\n` +
-    `<svg x="10" y="7" width="14" height="14" viewBox="0 0 24 24"><path d="${logo}" fill="${THEME.title}"/></svg>\n` +
-    `<g font-family="${BADGE_FONT}" font-size="10" fill="#ffffff">` +
+    `<g clip-path="url(#r)"><rect width="${split}" height="${height}" fill="${theme.bg}"/>` +
+    `<rect x="${split}" width="${round(width - split)}" height="${height}" fill="${theme.border}"/></g>\n` +
+    `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="5.5" fill="none" stroke="${theme.border}"/>\n` +
+    `<svg x="10" y="7" width="14" height="14" viewBox="0 0 24 24"><path d="${logo}" fill="${theme.title}"/></svg>\n` +
+    `<g font-family="${BADGE_FONT}" font-size="10" fill="${theme.badgeText}">` +
     `<text x="30" y="18" textLength="${labelWidth}" lengthAdjust="spacing">${escapeXml(labelText)}</text>` +
     `<text x="${round((split + width) / 2)}" y="18" font-weight="700" text-anchor="middle" textLength="${messageWidth}" lengthAdjust="spacing">${escapeXml(messageText)}</text>` +
     `</g>\n</svg>\n`
@@ -315,7 +334,7 @@ function capsWidth(text, bold) {
 // Types each line character by character, pauses, deletes it, then moves on.
 // Every glyph gets its own step keyframes; textLength pins the advance to
 // 0.6em so the cursor lines up whichever monospace font the viewer has.
-function typingHeader({ lines, color = THEME.title, width = 600, height = 50, fontSize = 24 }) {
+function typingHeader(theme, { lines, color = theme.title, width = 600, height = 50, fontSize = 24 }) {
   const typeMs = 2500;
   const pauseMs = 800;
   const deleteMs = 900;
@@ -393,10 +412,10 @@ function svgText(x, y, content, attrs) {
 }
 
 // [prefix, value, suffix] with the value emphasised.
-function richText(x, y, [prefix, value, suffix], attrs) {
+function richText(theme, x, y, [prefix, value, suffix], attrs) {
   return (
     `<text x="${round(x)}" y="${round(y)}"${attrList(attrs)}>${escapeXml(prefix)}` +
-    `<tspan fill="${THEME.ink}" font-weight="600">${escapeXml(value)}</tspan>${escapeXml(suffix)}</text>`
+    `<tspan fill="${theme.ink}" font-weight="600">${escapeXml(value)}</tspan>${escapeXml(suffix)}</text>`
   );
 }
 
