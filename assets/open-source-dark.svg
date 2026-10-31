@@ -1,16 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="700" height="518" viewBox="0 0 700 518" role="img" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif">
-<title>Open source contributions: 2 merged PRs across 1 repo with 20K+ stars</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="548" viewBox="0 0 700 548" role="img" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif">
+<title>Open source contributions: 3 merged PRs across 1 repo with 20K+ stars</title>
 <defs><clipPath id="avatar-0"><rect x="28" y="354" width="24" height="24" rx="6"/></clipPath></defs>
-<rect x="0.5" y="0.5" width="699" height="517" rx="10" fill="#0d1117" stroke="#30363d"/>
+<rect x="0.5" y="0.5" width="699" height="547" rx="10" fill="#0d1117" stroke="#30363d"/>
 <text x="28" y="46" fill="#58a6ff" font-size="20" font-weight="600">Open Source Contributions</text>
 <text x="672" y="46" fill="#8b949e" font-size="12" text-anchor="end">Repos with 20K+ ★</text>
-<text x="28" y="102" fill="#e6edf3" font-size="28" font-weight="600">2</text>
+<text x="28" y="102" fill="#e6edf3" font-size="28" font-weight="600">3</text>
 <text x="28" y="124" fill="#8b949e" font-size="12">Merged PRs</text>
 <text x="189" y="102" fill="#e6edf3" font-size="28" font-weight="600">1</text>
 <text x="189" y="124" fill="#8b949e" font-size="12">Repository</text>
-<text x="350" y="102" fill="#e6edf3" font-size="28" font-weight="600">2</text>
+<text x="350" y="102" fill="#e6edf3" font-size="28" font-weight="600">3</text>
 <text x="350" y="124" fill="#8b949e" font-size="12">Commits</text>
-<text x="511" y="102" font-size="28" font-weight="600"><tspan fill="#3fb950">+9</tspan><tspan dx="6" font-size="16" fill="#f85149">−1</tspan></text>
+<text x="511" y="102" font-size="28" font-weight="600"><tspan fill="#3fb950">+12</tspan><tspan dx="6" font-size="16" fill="#f85149">−1</tspan></text>
 <text x="511" y="124" fill="#8b949e" font-size="12">Lines changed</text>
 <line x1="28" x2="672" y1="148.5" y2="148.5" stroke="#30363d"/>
 <text x="28" y="178" fill="#e6edf3" font-size="13" font-weight="600">Pull requests per month</text>
@@ -33,7 +33,7 @@
 <text x="537.8" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Aug</text>
 <text x="591.5" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Sep</text>
 <path d="M635.2,272V220A4,4 0 0 1 639.2,216H651.2A4,4 0 0 1 655.2,220V272Z" fill="#3987e5"/>
-<text x="645.2" y="210" fill="#8b949e" font-size="12" text-anchor="middle">2</text>
+<text x="645.2" y="210" fill="#8b949e" font-size="12" text-anchor="middle">3</text>
 <text x="645.2" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Oct</text>
 <line x1="28" x2="672" y1="304.5" y2="304.5" stroke="#30363d"/>
 <text x="28" y="334" fill="#e6edf3" font-size="13" font-weight="600">Repositories</text>
@@ -43,13 +43,16 @@
 <circle cx="450" cy="366" r="4" fill="#3572A5"/>
 <text x="460" y="370" fill="#8b949e" font-size="12">Python</text>
 <path d="M540,362H640A4,4 0 0 1 644,366V366A4,4 0 0 1 640,370H540Z" fill="#3987e5"/>
-<text x="652" y="370" fill="#8b949e" font-size="12">2</text>
+<text x="652" y="370" fill="#8b949e" font-size="12">3</text>
 <line x1="28" x2="672" y1="392.5" y2="392.5" stroke="#30363d"/>
 <text x="28" y="422" fill="#e6edf3" font-size="13" font-weight="600">Latest pull requests</text>
 <circle cx="32" cy="451" r="4" fill="#3987e5"/>
-<text x="672" y="455" fill="#8b949e" font-size="12" text-anchor="end">pytorch/pytorch · Oct 24, 2026</text>
-<text x="44" y="455" fill="#e6edf3" font-size="13">[MPS] Break .grad reference cycles in TestMPS._linear_helper</text>
+<text x="672" y="455" fill="#8b949e" font-size="12" text-anchor="end">pytorch/pytorch · Oct 31, 2026</text>
+<text x="44" y="455" fill="#e6edf3" font-size="13">[MPS] Relax the fp16 tolerance for combinations backward in Tes…</text>
 <circle cx="32" cy="481" r="4" fill="#3987e5"/>
-<text x="672" y="485" fill="#8b949e" font-size="12" text-anchor="end">pytorch/pytorch · Oct 23, 2026</text>
-<text x="44" y="485" fill="#e6edf3" font-size="13">[MPS] Halve test_64bit_binops peak memory so it fits 24 GB Macs</text>
+<text x="672" y="485" fill="#8b949e" font-size="12" text-anchor="end">pytorch/pytorch · Oct 24, 2026</text>
+<text x="44" y="485" fill="#e6edf3" font-size="13">[MPS] Break .grad reference cycles in TestMPS._linear_helper</text>
+<circle cx="32" cy="511" r="4" fill="#3987e5"/>
+<text x="672" y="515" fill="#8b949e" font-size="12" text-anchor="end">pytorch/pytorch · Oct 23, 2026</text>
+<text x="44" y="515" fill="#e6edf3" font-size="13">[MPS] Halve test_64bit_binops peak memory so it fits 24 GB Macs</text>
 </svg>

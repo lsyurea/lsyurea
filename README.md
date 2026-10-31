@@ -41,7 +41,7 @@
 <div align="center">
 
 <!-- BOARD:START -->
-<a href="https://lsyurea.github.io/Open-Source/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/open-source-dark.svg"><img alt="Open source contributions: 2 merged PRs across 1 repo with 20K+ stars" src="assets/open-source-light.svg"></picture></a>
+<a href="https://lsyurea.github.io/Open-Source/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/open-source-dark.svg"><img alt="Open source contributions: 3 merged PRs across 1 repo with 20K+ stars" src="assets/open-source-light.svg"></picture></a>
 <!-- BOARD:END -->
 
 </div>
