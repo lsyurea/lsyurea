@@ -5,19 +5,19 @@
 <text x="50" y="34" fill="#58a6ff" font-size="16" font-weight="600">LeetCode</text>
 <text x="352" y="34" fill="#8b949e" font-size="12" text-anchor="end">Rating <tspan fill="#e6edf3" font-weight="600">1953</tspan> · Top 3.42%</text>
 <circle cx="74" cy="114" r="42" fill="none" stroke="#30363d" stroke-width="8"/>
-<circle cx="74" cy="114" r="42" fill="none" stroke="#58a6ff" stroke-width="8" stroke-linecap="round" stroke-dasharray="69.5 263.9" transform="rotate(-90 74 114)"/>
+<circle cx="74" cy="114" r="42" fill="none" stroke="#58a6ff" stroke-width="8" stroke-linecap="round" stroke-dasharray="69.4 263.9" transform="rotate(-90 74 114)"/>
 <text x="74" y="120" fill="#e6edf3" font-size="26" font-weight="600" text-anchor="middle">1,079</text>
 <text x="74" y="138" fill="#8b949e" font-size="12" text-anchor="middle">solved</text>
 <text x="148" y="76" fill="#e6edf3" font-size="13" font-weight="500">Easy</text>
-<text x="352" y="76" fill="#8b949e" font-size="12" text-anchor="end"><tspan fill="#e6edf3" font-weight="600">343</tspan> / 974</text>
+<text x="352" y="76" fill="#8b949e" font-size="12" text-anchor="end"><tspan fill="#e6edf3" font-weight="600">343</tspan> / 975</text>
 <rect x="148" y="85" width="204" height="6" rx="3" fill="#30363d"/>
 <rect x="148" y="85" width="71.8" height="6" rx="3" fill="#3fb950"/>
 <text x="148" y="112" fill="#e6edf3" font-size="13" font-weight="500">Medium</text>
-<text x="352" y="112" fill="#8b949e" font-size="12" text-anchor="end"><tspan fill="#e6edf3" font-weight="600">614</tspan> / 2,136</text>
+<text x="352" y="112" fill="#8b949e" font-size="12" text-anchor="end"><tspan fill="#e6edf3" font-weight="600">614</tspan> / 2,138</text>
 <rect x="148" y="121" width="204" height="6" rx="3" fill="#30363d"/>
 <rect x="148" y="121" width="58.6" height="6" rx="3" fill="#d29922"/>
 <text x="148" y="148" fill="#e6edf3" font-size="13" font-weight="500">Hard</text>
-<text x="352" y="148" fill="#8b949e" font-size="12" text-anchor="end"><tspan fill="#e6edf3" font-weight="600">122</tspan> / 986</text>
+<text x="352" y="148" fill="#8b949e" font-size="12" text-anchor="end"><tspan fill="#e6edf3" font-weight="600">122</tspan> / 987</text>
 <rect x="148" y="157" width="204" height="6" rx="3" fill="#30363d"/>
 <rect x="148" y="157" width="25.2" height="6" rx="3" fill="#f85149"/>
 </svg>
