@@ -1,16 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="700" height="548" viewBox="0 0 700 548" role="img" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif">
-<title>Open source contributions: 3 merged PRs across 1 repo with 20K+ stars</title>
-<defs><clipPath id="avatar-0"><rect x="28" y="354" width="24" height="24" rx="6"/></clipPath></defs>
-<rect x="0.5" y="0.5" width="699" height="547" rx="10" fill="#0d1117" stroke="#30363d"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="584" viewBox="0 0 700 584" role="img" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif">
+<title>Open source contributions: 3 merged PRs across 2 repos with 20K+ stars</title>
+<defs><clipPath id="avatar-0"><rect x="28" y="354" width="24" height="24" rx="6"/></clipPath><clipPath id="avatar-1"><rect x="28" y="390" width="24" height="24" rx="6"/></clipPath></defs>
+<rect x="0.5" y="0.5" width="699" height="583" rx="10" fill="#0d1117" stroke="#30363d"/>
 <text x="28" y="46" fill="#58a6ff" font-size="20" font-weight="600">Open Source Contributions</text>
 <text x="672" y="46" fill="#8b949e" font-size="12" text-anchor="end">Repos with 20K+ ★</text>
 <text x="28" y="102" fill="#e6edf3" font-size="28" font-weight="600">3</text>
 <text x="28" y="124" fill="#8b949e" font-size="12">Merged PRs</text>
-<text x="189" y="102" fill="#e6edf3" font-size="28" font-weight="600">1</text>
-<text x="189" y="124" fill="#8b949e" font-size="12">Repository</text>
-<text x="350" y="102" fill="#e6edf3" font-size="28" font-weight="600">3</text>
+<text x="189" y="102" fill="#e6edf3" font-size="28" font-weight="600">2</text>
+<text x="189" y="124" fill="#8b949e" font-size="12">Repositories</text>
+<text x="350" y="102" fill="#e6edf3" font-size="28" font-weight="600">13</text>
 <text x="350" y="124" fill="#8b949e" font-size="12">Commits</text>
-<text x="511" y="102" font-size="28" font-weight="600"><tspan fill="#3fb950">+12</tspan><tspan dx="6" font-size="16" fill="#f85149">−1</tspan></text>
+<text x="511" y="102" font-size="28" font-weight="600"><tspan fill="#3fb950">+201</tspan><tspan dx="6" font-size="16" fill="#f85149">−23</tspan></text>
 <text x="511" y="124" fill="#8b949e" font-size="12">Lines changed</text>
 <line x1="28" x2="672" y1="148.5" y2="148.5" stroke="#30363d"/>
 <text x="28" y="178" fill="#e6edf3" font-size="13" font-weight="600">Pull requests per month</text>
@@ -31,28 +31,40 @@
 <text x="430.5" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Jul</text>
 <text x="484.2" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Aug</text>
 <text x="537.8" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Sep</text>
-<path d="M581.5,272V220A4,4 0 0 1 585.5,216H597.5A4,4 0 0 1 601.5,220V272Z" fill="#3987e5"/>
-<text x="591.5" y="210" fill="#8b949e" font-size="12" text-anchor="middle">3</text>
+<path d="M581.5,272V242.4A4,4 0 0 1 585.5,238.4H597.5A4,4 0 0 1 601.5,242.4V272Z" fill="#3987e5"/>
+<text x="591.5" y="232.4" fill="#8b949e" font-size="12" text-anchor="middle">3</text>
 <text x="591.5" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Oct</text>
+<rect x="635.2" y="249.6" width="20" height="22.4" fill="#199e70"/>
+<path d="M635.2,247.6V220A4,4 0 0 1 639.2,216H651.2A4,4 0 0 1 655.2,220V247.6Z" fill="#d95926"/>
+<text x="645.2" y="210" fill="#8b949e" font-size="12" text-anchor="middle">5</text>
 <text x="645.2" y="290" fill="#8b949e" font-size="11" text-anchor="middle">Nov</text>
 <line x1="28" x2="672" y1="304.5" y2="304.5" stroke="#30363d"/>
 <text x="28" y="334" fill="#e6edf3" font-size="13" font-weight="600">Repositories</text>
 <image href="data:image/jpeg;base64,/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIADAAMAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APf6KKwfE/ia38PWnaS8kH7qLP8A48fb+dTOaguaWxpSpTqzUIK7Y7xF4lttBhRTiS7l4jiz/wCPH0H863K838M+GrnXr3+3dbLPG7b0Rusp7H2X0Hf6den8SjxEZrL+w9mzcfOzt9sZz269K56dWbi6klp0XU7q+FpRnGhCS5teZva/b5HQ0U3zE8zy96+Zjdtzzj1x6U6uo80iuZ0tbWW4kOI4kLsfYDJrzTwzpzeLvEN1qupDfBGwYxnoxP3V+gA/l613niRHfw1qSp977M/8ua534ZyIdEu4xjzFudzfQquP5GuSsuetCD23PWwknSwlWtD4tFfsmdqAFAAAAHAApaKK6zyTzXxMbvw14yg1hJpJIrg5wx/hGAyfTBGPw9K9IjdZY1kQ5VgGB9Qa4T4nSILLT4zjzDIzD6ADP8xXYaOjR6JYI/31tow312iuSj7tacFtueri/wB5hKNV76r1S2LjoroyOAVYYIPcV5aj3XgDxNIGjeTT5+mP40zxj/aXP+c16nVW/wBOtNUtWtr2BZoj2bsfUHsa0rUnOzi7NbHPg8UqLlGorwlo1+vqiPTtZ0/VYhJZ3ccuRyobDD6jqKZqeuabpELSXl1GhA4jBy7fQda5K8+GMDyFrPUXiXskse/H4gj+VOsvhlbRyBr2/kmUfwRpsz+OTWftMRtya976HR9Xy+/N7V27W1+/YybdLrx54pFxLEU0+AjIPRUBzt/3m/z0r1LoMCq9lY22nWq21pCkMK9FUfqfU+9WK0o0nTTcndvc5sZilXajBWhHRL+urP/Z" x="28" y="354" width="24" height="24" clip-path="url(#avatar-0)"/>
 <text x="64" y="370" fill="#e6edf3" font-size="13" font-weight="500">pytorch/pytorch</text>
-<text x="430" y="370" fill="#8b949e" font-size="12" text-anchor="end">★ 105.2K</text>
+<text x="430" y="370" fill="#8b949e" font-size="12" text-anchor="end">★ 105.7K</text>
 <circle cx="450" cy="366" r="4" fill="#3572A5"/>
 <text x="460" y="370" fill="#8b949e" font-size="12">Python</text>
-<path d="M540,362H640A4,4 0 0 1 644,366V366A4,4 0 0 1 640,370H540Z" fill="#3987e5"/>
-<text x="652" y="370" fill="#8b949e" font-size="12">3</text>
-<line x1="28" x2="672" y1="392.5" y2="392.5" stroke="#30363d"/>
-<text x="28" y="422" fill="#e6edf3" font-size="13" font-weight="600">Latest pull requests</text>
-<circle cx="32" cy="451" r="4" fill="#3987e5"/>
-<text x="672" y="455" fill="#8b949e" font-size="12" text-anchor="end">pytorch/pytorch · Oct 31, 2026</text>
-<text x="44" y="455" fill="#e6edf3" font-size="13">[MPS] Relax the fp16 tolerance for combinations backward in Tes…</text>
-<circle cx="32" cy="481" r="4" fill="#3987e5"/>
-<text x="672" y="485" fill="#8b949e" font-size="12" text-anchor="end">pytorch/pytorch · Oct 24, 2026</text>
-<text x="44" y="485" fill="#e6edf3" font-size="13">[MPS] Break .grad reference cycles in TestMPS._linear_helper</text>
-<circle cx="32" cy="511" r="4" fill="#3987e5"/>
-<text x="672" y="515" fill="#8b949e" font-size="12" text-anchor="end">pytorch/pytorch · Oct 23, 2026</text>
-<text x="44" y="515" fill="#e6edf3" font-size="13">[MPS] Halve test_64bit_binops peak memory so it fits 24 GB Macs</text>
+<rect x="540" y="362" width="44.6" height="8" fill="#3987e5"/>
+<rect x="586.6" y="362" width="12.9" height="8" fill="#199e70"/>
+<path d="M601.4,362H640A4,4 0 0 1 644,366V366A4,4 0 0 1 640,370H601.4Z" fill="#d95926"/>
+<text x="652" y="370" fill="#8b949e" font-size="12">7</text>
+<image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAADKElEQVR4nOyY3W4STRjHH5btArOwS+CleYG+S3kpPfMqbKJG4zUYbY2Jh96KN+AlNPFEa2LUgx6ZaEyh2PhRoy20lVqQjy3sjlnksV+7s7PlIzXh1x7sf4Y2vzz77MwsIqUULhICXkyEJkJ/mxC9OEJfqvDwubG118KBE4h4MQ62D2D5jfF6E6IB3d+tAYRwZuxCtRYsvzVfbVCzd6s0tUUIwcnxCjV0WCmaKwWqd3EIIKO0CFExjUuo3YFnRfPJGm11cKgPnZ82RVEcn1DHgJfvzcfvaL2NQ8f4V27HlCCm0QsVtuDRqvG9gfkMWbXp1ED2QnrlRWd3FRMLMn9fkCKY+jwtsGwsoWibkH8wcQj5iVbffABg4oAjB+Hr6dlLmKwf04SNHQx2SILxf8InCALwL4xiJCslL2Pyxodd0LsOc73fdKQdCTveL8eVmuTvAvgweWBt26WuGbUpyzImbiExkpNS1zB5oLDlctzLxQ6DwaBnIQCQ5++Bz4+Ji+YhfNrDYAcRu1pcdJxmC/nlmcDMTUxclMpA3e8XOaeQ1Um5W+wPnKJUcWkgTXHcwriE/PJ/UvoqJndKZXaBaC7elSQJo3chq0hzS5ydVG/D130MdkQDnVTMxcZdSAxnpBRXkdbLJrs+msLaMXiFekVa5CnS+jbbB2adz0DehDiLVCzjlT00n3A8cngT6heJuXBXG7BTx2BHIqTHVdZ66E3IKlJyAZMNpbLbA893v3iFXHe34pAayIMQe3djN5DgM/PTwDhynEcIdzebriwfwH4Tgx0puR2NhBynzy3U291uYDpifXgN5E3I6qTc7bNrUqni0kDZqD4qIb88IyWvYOpTYjbQlGBkE6wlYyAhq0j5peN/9e0H1Ozedf6gKS2FeWYdVMhak9JHj1vR7czKfukZgtCpIrltYXQu7nJmHYKQKGu/i2SaUKrgqB2K1EnFpjCNTMgq0twdAGGzeva9/QQZpcV+xxiakBielZILH6sBHLBHU8clZBUpv/i5FsZkC80nDJ4jx3F8g3xx/rPRqNdYxw5CQqqqAuMTwxUaBcKg/2AiNBG6aEK/BgBnx+hBUiIcIAAAAABJRU5ErkJggg==" x="28" y="390" width="24" height="24" clip-path="url(#avatar-1)"/>
+<text x="64" y="406" fill="#e6edf3" font-size="13" font-weight="500">vllm-project/vllm</text>
+<text x="430" y="406" fill="#8b949e" font-size="12" text-anchor="end">★ 97.3K</text>
+<circle cx="450" cy="402" r="4" fill="#3572A5"/>
+<text x="460" y="406" fill="#8b949e" font-size="12">Python</text>
+<path d="M540,398H550.9A4,4 0 0 1 554.9,402V402A4,4 0 0 1 550.9,406H540Z" fill="#199e70"/>
+<text x="562.9" y="406" fill="#8b949e" font-size="12">1</text>
+<line x1="28" x2="672" y1="428.5" y2="428.5" stroke="#30363d"/>
+<text x="28" y="458" fill="#e6edf3" font-size="13" font-weight="600">Latest pull requests</text>
+<circle cx="32" cy="487" r="4" fill="#d95926"/>
+<text x="672" y="491" fill="#8b949e" font-size="12" text-anchor="end">pytorch/pytorch · Nov 10, 2026</text>
+<text x="44" y="491" fill="#e6edf3" font-size="13">[cuda][test] Fix test_std_cuda_kernel_launch_check_error for C…</text>
+<circle cx="32" cy="517" r="4" fill="#199e70"/>
+<text x="672" y="521" fill="#8b949e" font-size="12" text-anchor="end">vllm-project/vllm · Nov 9, 2026</text>
+<text x="44" y="521" fill="#e6edf3" font-size="13">[Bugfix][Responses] Populate logprobs in response.output_text.do…</text>
+<circle cx="32" cy="547" r="4" fill="#d95926"/>
+<text x="672" y="551" fill="#8b949e" font-size="12" text-anchor="end">pytorch/pytorch · Nov 9, 2026</text>
+<text x="44" y="551" fill="#e6edf3" font-size="13">[inductor][rocm] Disable benchmark_template_fusion in test_templ…</text>
 </svg>
